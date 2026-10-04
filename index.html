@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A 97 percent step fails one job in five</title>
+<style>
+body{font-family:Georgia,serif;max-width:680px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#1a1a1a;background:#faf9f6}
+h1{font-size:1.6rem;line-height:1.3}
+p{margin:0 0 1.1em}
+a{color:#0a58ca}
+footer{margin-top:2rem;font-size:.85rem;color:#666}
+</style>
+</head>
+<body>
+<article>
+<h1>A 97 percent step fails one job in five</h1>
+<p>An agent pipeline gets judged step by step. Each call pulls the right context, formats the output, passes the check. At 97 percent per step, every stage looks healthy on its own dashboard. Multiply the steps and the picture flips: a job that runs eight model calls in a row finishes only 78.4 percent of the time. One job in five dies somewhere in the chain, and no single step ever looks broken.</p>
+<p>The failure is arithmetic, not flakiness. Reliability multiplies down a chain, so each extra call taxes every job. Four steps at 97 percent ship 88.5 percent of jobs. Add a fifth and the same per-step quality ships 85.9. Nothing regressed; the chain just got longer. Teams that respond by tuning prompt wording are tuning the wrong variable.</p>
+<p>The fix runs the multiplication backwards. If 90 percent of jobs must survive eight steps, the bar per step is not 97, it is 98.7. That 1.7-point upgrade sounds cosmetic until you price it: 21.6 failed jobs per hundred drops to 10.0. Half the retries, same pipeline, same prompts.</p>
+<p>Retries also carry the bill. Take eight steps at 4,000 tokens in and 800 out, at $3 per million input and $15 per million output. Each run costs $0.024 a step, $0.192 a job. Failed runs still bill, so the expected cost of one completed job is $0.245 at 97 percent steps and $0.213 at 98.7, a 12.9 percent cut from a fix that costs nothing per call.</p>
+<p>The monitoring error keeps this invisible. A per-step success rate of 97 percent is the truth and a distraction at the same time: the number that predicts delivered work is the product, not the average. Track jobs finished per hundred started and the chain health shows up immediately.</p>
+<p>The method fits on an index card. Count the model calls in the critical path. Multiply the per-step rates to get the real job rate. Set the step bar backwards from the job target. Price the retries into cost per completed job, not cost per run.</p>
+<p><a href="https://pastagi.com/">PastAGI</a> treats agent chains the same way, per-step bar first: serving cost, eval slices, and <a href="https://pastagi.com/">inference pricing</a> worked as math instead of folklore.</p>
+</article>
+<footer>chain-reliability-math</footer>
+</body>
+</html>
